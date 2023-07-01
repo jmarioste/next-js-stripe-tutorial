@@ -3,17 +3,16 @@
 import Stripe from "stripe";
 
 type Props = {
-  customer: Stripe.Customer | null;
+  email?: string;
+  customerId?: string;
 };
-const SignUpForm = ({ customer }: Props) => {
-  const email = customer?.email ?? "";
-  const customerId = customer?.id ?? "";
+const SignUpForm = ({ email, customerId }: Props) => {
   return (
     <form
       className="flex flex-col gap-2"
       onSubmit={(e) => {
         e.preventDefault();
-        // save user to your own database
+        // save user along with subscription information the database
       }}
     >
       <label>Email</label>

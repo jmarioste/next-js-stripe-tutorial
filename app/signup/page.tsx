@@ -27,7 +27,7 @@ export default async function SignUpPage(props: Props) {
         <h1 className="text-center text-4xl font-bold my-10">
           Create an Account
         </h1>
-        <SignUpForm customer={customer} />
+        <SignUpForm email={customer?.email ?? ""} customerId={customer?.id} />
       </div>
     </div>
   );
