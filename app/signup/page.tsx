@@ -9,6 +9,7 @@ type Props = {
     session_id?: string;
   };
 };
+
 async function getCustomerbySession(sessionId?: string) {
   if (!sessionId) return null;
   const session = await stripe.checkout.sessions.retrieve(sessionId);
@@ -17,6 +18,7 @@ async function getCustomerbySession(sessionId?: string) {
   const customer = await stripe.customers.retrieve(session.customer as string);
   return customer as Stripe.Customer;
 }
+
 export default async function SignUpPage(props: Props) {
   const searchParams = props.searchParams;
   const sessionId = searchParams.session_id;

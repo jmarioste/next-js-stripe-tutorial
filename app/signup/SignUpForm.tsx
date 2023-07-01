@@ -1,11 +1,10 @@
 "use client";
 
-import Stripe from "stripe";
-
 type Props = {
   email?: string;
   customerId?: string;
 };
+
 const SignUpForm = ({ email, customerId }: Props) => {
   return (
     <form
@@ -23,6 +22,7 @@ const SignUpForm = ({ email, customerId }: Props) => {
         placeholder="Email"
         name="email"
         id="email"
+        disabled={!!email}
       />
       <input type="hidden" value={customerId} name="stripe_customer_id" />
       <label htmlFor="password">Password</label>
